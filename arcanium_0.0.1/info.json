@@ -1,0 +1,13 @@
+{
+  "name": "arcanium",
+  "version": "0.0.01",
+  "factorio_version": "1.1",
+  "title": "Arcanium",
+  "author": "Timmeeh!",
+  "contact": "TODO",
+  "homepage": "TODO",
+  "dependencies": [
+    "base >= 1.1.0"
+  ],
+  "description": "TODO"
+}
