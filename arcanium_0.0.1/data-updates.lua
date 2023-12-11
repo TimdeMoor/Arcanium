@@ -14,10 +14,14 @@
 --end
 
 -- add custom science to labs
-Arcanium.add_tool_to_labs("knowledge-book-elemental")
-Arcanium.add_tool_to_labs("knowledge-book-alchemy")
-Arcanium.add_tool_to_labs("knowledge-book-enchantments")
-Arcanium.add_tool_to_labs("knowledge-book-summoning")
+for lab, labs in pairs(data.raw.lab) do
+    if data.raw.lab[lab].inputs ~= nil then
+        table.insert(data.raw.lab[lab].inputs, "knowledge-book-elemental")
+        table.insert(data.raw.lab[lab].inputs, "knowledge-book-alchemy")
+        table.insert(data.raw.lab[lab].inputs, "knowledge-book-enchantments")
+        table.insert(data.raw.lab[lab].inputs, "knowledge-book-summoning")
+    end
+end
 
 table.insert(data.raw.character.character.crafting_categories, "summoning-raw")
 data.raw.character.character.max_health = settings.startup["character-starting-health"].value

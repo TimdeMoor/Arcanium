@@ -26,5 +26,24 @@ data:extend({{
     minimum_value = 1,
     default_value = 10,
     maximum_value = 50,
+},{
+    type = "bool-setting",
+    name = "debug-mode",
+    setting_type = "startup",
+    default_value = false,
+},{
+    type = "int-setting",
+    name = "aura-check-frequency-in-ticks",
+    setting_type = "startup",
+    minimum_value = 10,
+    default_value = 60,
+    maximum_value = 600,
+},{
+    type = "int-setting",
+    name = "aura-crafting-threshold",
+    setting_type = "startup",
+    minimum_value = 0,
+    maximum_value = 50,
+    default_value = 15
 }
 })

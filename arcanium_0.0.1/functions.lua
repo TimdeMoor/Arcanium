@@ -78,7 +78,7 @@ function Arcanium.graphics.icon_with_subimage(iconpath, subimagepath, icon_size,
         shift_positions[7] = {-offset, offset}
         shift_positions[8] = {0, offset}
         shift_positions[9] = {offset, offset}
-    
+
 
     local stacked_icons = {{
         icon = iconpath,
@@ -101,11 +101,11 @@ function Arcanium.debug.dump(dump)
     log(serpent.block(dump))
 end
 
-
---- adds the given tool to all lab inputs
----@param tool_name string
-function Arcanium.add_tool_to_labs(tool_name)
-    for lab, labs in pairs(data.raw.lab) do
-        table.insert(data.raw.lab[lab].inputs, tool_name)
-    end
+---returns a table with data for a box of size WxH
+---@param width number
+---@param height number
+function Arcanium.util.box(width, height)
+    local halfW = width/2
+    local halfH = height/2
+    return {{-halfW, -halfH},{halfW, halfH}}
 end
