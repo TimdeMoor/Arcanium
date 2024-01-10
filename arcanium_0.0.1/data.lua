@@ -20,11 +20,14 @@ require("prototypes.entities.aura-assembler")
 require("prototypes.items.mana-crystal")
 require("prototypes.items.knowledge-books")
 require("prototypes.items.aura-assembler")
+require("prototypes.items.armor")
+require("prototypes.items.enchants")
 
 -- Recipes
 require("prototypes.recipes.mana-crystal")
 require("prototypes.recipes.summoning")
 require("prototypes.recipes.knowledge-books")
+require("prototypes.recipes.enchants")
 
 -- Ores
 
