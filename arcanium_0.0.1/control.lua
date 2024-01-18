@@ -72,3 +72,10 @@ end
 function Arcanium.util.get_pollution(position, surface_index)
     return game.surfaces[1].get_pollution(position)
 end
+
+--- damages all the unstable entities on the map
+function damageUnstableEntities(entities)
+    for _, entity in pairs(entities) do
+        entity.damage(settings.startup["unstable-damage"].value, 0)
+    end
+end

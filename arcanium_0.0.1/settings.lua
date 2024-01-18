@@ -45,5 +45,12 @@ data:extend({{
     minimum_value = 0,
     maximum_value = 50,
     default_value = 15
+},{
+    type = "int-setting",
+    name = "unstable-damage",
+    setting_type = "startup",
+    minimum_value = 1,
+    maximum_value = 10,
+    default_value = 1
 }
 })
