@@ -9,9 +9,6 @@ script.on_event(defines.events.on_robot_built_entity, function(event)
     track_aura_assemblers(event)
 end)
 
-
-
-
 local function damage_player_character(player, damage)
     player.character.health = player.character.health - damage
     if player.character.health <= 0 then

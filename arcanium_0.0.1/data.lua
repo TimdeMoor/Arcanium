@@ -8,7 +8,7 @@ require("enums")
 
 local itemgroups = {"arcanium"}
 
-local summoning_subgroups = {"summoning", "summoning-ore", "summoning-raw" ,"research"}
+local summoning_subgroups = {"summoning", "summoning-ore", "summoning-raw", "research"}
 
 Arcanium.generate_itemgroups(itemgroups)
 Arcanium.generate_itemsubgroups(itemgroups[1], summoning_subgroups)
@@ -36,7 +36,6 @@ require("prototypes.item-groups")
 
 -- Technologies
 require("prototypes.technology.experimentation-summoning")
-
 
 -- Debug
 require("prototypes.debug")

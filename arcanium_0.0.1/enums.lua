@@ -8,5 +8,5 @@ Arcanium.enums.subimage_position = {
     MiddleRight = 6,
     BottomLeft = 7,
     BottomCenter = 8,
-    BottomRight = 9,
+    BottomRight = 9
 }

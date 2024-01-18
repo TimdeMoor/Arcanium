@@ -25,7 +25,7 @@ data:extend({{
     order = "b",
     stack_size = 50,
     durability = 1
-},{
+}, {
     type = "tool",
     name = "knowledge-book-summoning",
     icon = "__arcanium__/graphics/icons/knowledge-book-yellow.png",
@@ -34,5 +34,4 @@ data:extend({{
     order = "b",
     stack_size = 50,
     durability = 1
-}
-})
+}})
