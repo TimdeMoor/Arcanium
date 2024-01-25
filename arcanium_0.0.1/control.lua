@@ -26,16 +26,21 @@ script.on_event(defines.events.on_player_crafted_item, function(event)
     end
 end)
 
-
 function onInit()
     script.on_event(defines.events.on_tick, onTick)
     global.aura_assemblers = global.aura_assemblers or {}
+    global.unstable_entities = global.unstable_entities or {}
 end
 script.on_init(onInit)
 
+--TODO: rewrite to use nth tick
 function onTick()
     if (game.tick % settings.startup["aura-check-frequency-in-ticks"].value == 0) then
         processAuraAssemblers(global.aura_assemblers)
+    end
+
+    if (game.tick % settings.statup["unstable-check-frequency-in-ticks"].value == 0) then
+        damageUnstableEntities(global.unstable_entities)
     end
 end
 
@@ -45,10 +50,7 @@ end
 script.on_load(onLoad)
 
 function track_aura_assemblers(event)
-    local entity = event.created_entity
-    local name = entity.name
-
-    if (name == "aura-assembler") then
+    if (string.find(event.created_entity.name, "aura")) then
         table.insert(global.aura_assemblers, entity)
     end
 end
@@ -73,9 +75,15 @@ function Arcanium.util.get_pollution(position, surface_index)
     return game.surfaces[1].get_pollution(position)
 end
 
+function trackUnstableEntities()
+    if (string.find(event.created_entity.name, "unstable")) then
+        table.insert(global.unstable_entities, entity)
+    end
+end
+
 --- damages all the unstable entities on the map
-function damageUnstableEntities(entities)
-    for _, entity in pairs(entities) do
+function damageUnstableEntities(unstable_entities)
+    for _, entity in pairs(unstable_entities) do
         entity.damage(settings.startup["unstable-damage"].value, 0)
     end
 end
