@@ -1,5 +1,5 @@
 local shield_values_per_tier = {25, 50, 100, 200}
-local seconds_to_recharge = 5
+local shield_recharge_per_tier = {5, 10, 20, 40}
 
 for i = 1, 4 do
     data:extend({{

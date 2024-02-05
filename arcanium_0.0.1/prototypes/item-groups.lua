@@ -1,4 +1,4 @@
 data:extend({{
     type = "recipe-category",
-    name = "summoning-raw"
+    name = "conjuring-sacrificial"
 }})

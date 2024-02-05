@@ -22,12 +22,18 @@ require("prototypes.items.knowledge-books")
 require("prototypes.items.aura-assembler")
 require("prototypes.items.armor")
 require("prototypes.items.enchants")
+require("prototypes.items.plank")
+require("prototypes.items.sapling")
+require("prototypes.items.paper")
+require("prototypes.items.stick")
+require("prototypes.items.empty-scroll")
 
 -- Recipes
 require("prototypes.recipes.mana-crystal")
-require("prototypes.recipes.summoning")
+require("prototypes.recipes.conjuring")
 require("prototypes.recipes.knowledge-books")
 require("prototypes.recipes.enchants")
+require("prototypes.recipes.treefarm")
 
 -- Ores
 

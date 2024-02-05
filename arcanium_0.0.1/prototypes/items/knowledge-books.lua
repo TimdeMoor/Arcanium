@@ -27,7 +27,7 @@ data:extend({{
     durability = 1
 }, {
     type = "tool",
-    name = "knowledge-book-summoning",
+    name = "knowledge-book-conjuring",
     icon = "__arcanium__/graphics/icons/knowledge-book-yellow.png",
     icon_size = 32,
     subgroup = "research",

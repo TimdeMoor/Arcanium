@@ -1,10 +1,10 @@
 data:extend({{
     type = "int-setting",
-    name = "damage-on-summon-amount",
+    name = "damage-on-sacrificial-amount",
     setting_type = "startup",
     minimum_value = 0,
-    default_value = 75,
-    maximum_value = 200
+    default_value = 50,
+    maximum_value = 199
 },{
     type = "int-setting",
     name = "basic-mana-crystal-use-chance",

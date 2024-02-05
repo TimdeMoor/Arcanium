@@ -1,6 +1,9 @@
 Arcanium = Arcanium or {}
 Arcanium.util = Arcanium.util or {}
 
+--Events
+
+
 script.on_event(defines.events.on_built_entity, function(event)
     track_aura_assemblers(event)
 end)
@@ -21,8 +24,8 @@ script.on_event(defines.events.on_player_crafted_item, function(event)
     if player.character == nil then
         return
     end
-    if event.recipe.category == "summoning-raw" then
-        damage_player_character(player, settings.startup["damage-on-summon-amount"].value)
+    if string.find(event.recipe.category, "sacrificial") then
+        damage_player_character(player, settings.startup["damage-on-sacrificial-amount"].value)
     end
 end)
 

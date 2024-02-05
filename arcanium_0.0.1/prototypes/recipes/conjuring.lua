@@ -1,15 +1,15 @@
-local summoning_resources = {"iron-ore", "copper-ore", "coal", "stone", "wood"}
+local conjuring_resources = {"iron-ore", "copper-ore", "coal", "stone", "wood"}
 
-for _, resource in pairs(summoning_resources) do
+for _, resource in pairs(conjuring_resources) do
     data:extend({{
         type = "recipe",
-        name = "basic-summoning-"..resource,
+        name = "basic-conjuring-"..resource,
         energy_required = 2,
         icons = Arcanium.graphics.icon_with_subimage(
             "__base__/graphics/icons/"..resource..".png",
             "__arcanium__/graphics/icons/order-crystal.png",
             64, Arcanium.enums.subimage_position.TopLeft),
-        subgroup = "summoning-ore",
+        subgroup = "conjuring-ore",
         enabled = false,
         ingredients = {{
             type = "item",
@@ -29,14 +29,14 @@ for _, resource in pairs(summoning_resources) do
     },
     {
         type = "recipe",
-        name = "raw-summoning-"..resource,
+        name = "sacrificial-summoning-"..resource,
         energy_required = 5,
         icons = Arcanium.graphics.icon_with_subimage(
             "__base__/graphics/icons/"..resource..".png",
             "__arcanium__/graphics/icons/blood-drop.png",
             64, Arcanium.enums.subimage_position.TopLeft),
-        subgroup = "summoning-raw",
-        category = "summoning-raw",
+        subgroup = "conjuring-sacrificial",
+        category = "conjuring-sacrificial",
         enabled = true,
         allow_as_intermediate = false;
         ingredients = {},
