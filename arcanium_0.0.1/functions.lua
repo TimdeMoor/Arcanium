@@ -109,3 +109,30 @@ function Arcanium.util.box(width, height)
     local halfH = height/2
     return {{-halfW, -halfH},{halfW, halfH}}
 end
+
+function Arcanium.table.add(table, value)
+    table.insert(table, value)
+end
+
+function Arcanium.table.remove(table, value)
+    local i = 0
+    for _,_item in ipairs(table) do
+        if value == _item then
+            i = _
+            break
+        end
+    end
+    if i > 0 then
+        table.remove(table, i)
+    end
+end
+
+
+function Arcanium.table.contains(table, value)
+    for _, v in pairs(table) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end

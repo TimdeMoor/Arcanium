@@ -8,7 +8,7 @@ data:extend({
             64, Arcanium.enums.subimage_position.TopLeft
         ),
         category = "crafting-with-fluid",
-        energy_required = 1,
+        energy_required = 4,
         enabled = true,
         ingredients =
         {
@@ -34,7 +34,7 @@ data:extend({
     {
         type = "recipe",
         name = "sapling",
-        energy_required = 1,
+        energy_required = 2,
         enabled = true,
         category = "crafting",
         ingredients =

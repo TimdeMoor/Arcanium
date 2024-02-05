@@ -5,7 +5,7 @@ data:extend({{
         "__arcanium__/graphics/icons/order-crystal.png",
         "__arcanium__/graphics/icons/blood-drop.png",
          64, Arcanium.enums.subimage_position.TopLeft),
-    category = "summoning-raw",
+    category = "conjuring-sacrificial",
     energy_required = 1,
     enabled = true,
     ingredients = {},
