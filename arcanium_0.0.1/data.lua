@@ -45,5 +45,8 @@ require("prototypes.item-groups")
 -- Technologies
 require("prototypes.technology.experimentation-summoning")
 
+-- Tiles
+require("prototypes.tiles")
+
 -- Debug
 require("prototypes.debug")
