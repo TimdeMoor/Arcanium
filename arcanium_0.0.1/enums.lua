@@ -1,5 +1,5 @@
-Arcanium.enums = {}
-Arcanium.enums.subimage_position = {
+enums = {}
+enums.subimage_position = {
     TopLeft = 1,
     TopCenter = 2,
     TopRight = 3,

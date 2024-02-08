@@ -1,7 +1,7 @@
 local effects = {}
-local summoning_resources = {"iron-ore", "copper-ore", "coal", "stone", "wood"}
+local conjuring_resources = {"iron-ore", "copper-ore", "coal", "stone", "wood"}
 
-for _, resource in pairs(summoning_resources) do
+for _, resource in pairs(conjuring_resources) do
     table.insert(effects,{
         type = "unlock-recipe",
         recipe = "basic-conjuring-"..resource

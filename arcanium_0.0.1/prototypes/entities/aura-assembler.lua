@@ -19,8 +19,8 @@ data:extend({{
     crafting_speed = 1,
     crafting_categories = {"crafting"},
     corpse = "small-remnants",
-    collision_box = Arcanium.util.box(2.8, 2.8),
-    selection_box = Arcanium.util.box(3.0, 3.0),
+    collision_box = box(2.8, 2.8),
+    selection_box = box(3.0, 3.0),
     maximum_wire_distance = 1,
     supply_area_distance = 64,
     pictures = {

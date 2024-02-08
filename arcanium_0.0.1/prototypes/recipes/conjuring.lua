@@ -4,16 +4,16 @@ for _, resource in pairs(conjuring_resources) do
     data:extend({{
         type = "recipe",
         name = "basic-conjuring-"..resource,
-        energy_required = 2,
-        icons = Arcanium.graphics.icon_with_subimage(
+        energy_required = 1,
+        icons = icon_with_subimage(
             "__base__/graphics/icons/"..resource..".png",
             "__arcanium__/graphics/icons/order-crystal.png",
-            64, Arcanium.enums.subimage_position.TopLeft),
-        subgroup = "conjuring-ore",
+            64, enums.subimage_position.TopLeft),
+        subgroup = "conjuring-basic",
         enabled = false,
         ingredients = {{
             type = "item",
-            name = "basic-mana-crystal",
+            name = "basic-conjuring-catalyst",
             amount = 1
         }},
         results = {{
@@ -22,19 +22,19 @@ for _, resource in pairs(conjuring_resources) do
             amount = 1
         }, {
             type = "item",
-            name = "basic-mana-crystal",
-            probability = settings.startup["basic-mana-crystal-use-chance"].value/100,
+            name = "basic-conjuring-catalyst",
+            probability = settings.startup["basic-conjuring-catalyst-use-chance"].value/100,
             amount = 1
         }}
     },
     {
         type = "recipe",
-        name = "sacrificial-summoning-"..resource,
-        energy_required = 5,
-        icons = Arcanium.graphics.icon_with_subimage(
+        name = "sacrificial-conjuring-"..resource,
+        energy_required = 1,
+        icons = icon_with_subimage(
             "__base__/graphics/icons/"..resource..".png",
             "__arcanium__/graphics/icons/blood-drop.png",
-            64, Arcanium.enums.subimage_position.TopLeft),
+            64, enums.subimage_position.TopLeft),
         subgroup = "conjuring-sacrificial",
         category = "conjuring-sacrificial",
         enabled = true,

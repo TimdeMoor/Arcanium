@@ -1,6 +1,6 @@
 Arcanium = Arcanium or {}
-Arcanium.util = Arcanium.util or {}
-
+require("functions")
+require("starter-inventory")
 
 script.on_event(defines.events.on_built_entity, function(event)
     track_aura_assemblers(event)
@@ -11,13 +11,6 @@ script.on_event(defines.events.on_robot_built_entity, function(event)
     track_aura_assemblers(event)
     track_unstable_entities(event)
 end)
-
-local function damage_player_character(player, damage)
-    player.character.health = player.character.health - damage
-    if player.character.health <= 0 then
-        player.character.die()
-    end
-end
 
 script.on_event(defines.events.on_player_crafted_item, function(event)
     local player = game.players[event.player_index]
@@ -63,22 +56,13 @@ end
 
 function process_aura_assemblers(aura_assemblers)
     for _, assembler in pairs(aura_assemblers) do
-        local pollution = Arcanium.util.get_pollution(assembler.position, assembler.surface)
+        local pollution = get_pollution(assembler.position, assembler.surface)
         if pollution >= settings.startup["aura-crafting-threshold"].value then
             assembler.active = true
         else
             assembler.active = false
         end
     end
-end
-
-
---TODO: Fix so it works on any surface
---- returns the pollution amount on a surface from a position vector
----@param position table
----@param surface_index number
-function Arcanium.util.get_pollution(position, surface_index)
-    return game.surfaces[1].get_pollution(position)
 end
 
 function track_unstable_entities(event)
@@ -95,3 +79,18 @@ function damage_unstable_entities(unstable_entities)
         entity.damage(settings.startup["unstable-damage"].value, 1)
     end
 end
+
+--- sets the players starter inventory
+function set_starter_inventory(event)
+    local player = game.players[event.player_index]
+    local inventory = player.get_main_inventory()
+
+    if(not inventory)then return end
+
+    inventory.clear()
+    for _, v in pairs(starter_inventory) do
+        player.get_main_inventory().insert(v)
+    end
+end
+script.on_event(defines.events.on_cutscene_cancelled, set_starter_inventory)
+script.on_event(defines.events.on_player_created, set_starter_inventory)

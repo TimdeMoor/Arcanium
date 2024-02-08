@@ -7,7 +7,7 @@ data:extend({{
     maximum_value = 199
 },{
     type = "int-setting",
-    name = "basic-mana-crystal-use-chance",
+    name = "basic-conjuring-catalyst-use-chance",
     setting_type = "startup",
     minimum_value = 1,
     default_value = 66,

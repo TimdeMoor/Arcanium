@@ -2,10 +2,10 @@ data:extend({
     {
         type = "recipe",
         name = "basic-wood",
-        icons = Arcanium.graphics.icon_with_subimage(
+        icons = icon_with_subimage(
             "__base__/graphics/icons/wood.png",
             "__base__/graphics/icons/fluid/water.png",
-            64, Arcanium.enums.subimage_position.TopLeft
+            64, enums.subimage_position.TopLeft
         ),
         category = "crafting-with-fluid",
         energy_required = 4,
@@ -16,7 +16,8 @@ data:extend({
         {type="fluid", name="water", amount=50}
         },
         result= "wood",
-        result_count = 5
+        result_count = 5,
+        hide_from_player_crafting = true
     },
     {
         type = "recipe",

@@ -16,9 +16,9 @@ data:extend(
           percent = 90
         }
       },
-      collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
-      selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-      drawing_box = {{-0.1, -0.1}, {0.1, 0.1}},
+      collision_box = box(0.1, 0.1),
+      selection_box = box(0.5, 0.5),
+      drawing_box = box(0.1, 0.1),
       maximum_wire_distance = 8,
       supply_area_distance = 0.1,
       pictures =

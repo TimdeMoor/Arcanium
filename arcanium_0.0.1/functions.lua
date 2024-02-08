@@ -1,60 +1,21 @@
---- Automatically generates itemgroups for the given list of names
----@param itemgroup_names table
-function Arcanium.generate_itemgroups(itemgroup_names)
-    local tempgroups = {}
-    local i = 1
-    for _, itemgroupname in pairs(itemgroup_names) do
-        local tempgroup = {
-            type = "item-group",
-            name = itemgroupname,
-            order = "a",
-            inventory_order = "a-a",
-            icon = "__arcanium__/graphics/icons/transmutationCircle.png",
-            icon_size = 500
-        }
-        tempgroups[i] = tempgroup
-        i = i + 1
-    end
-    data:extend(tempgroups)
-end
-
---- Automatically generates all the subitemgroups and connects them to an itemgroup
----@param itemgroup_name string
----@param itemsubgroup_names table
-function Arcanium.generate_itemsubgroups(itemgroup_name, itemsubgroup_names)
-    local tempsubgroups = {}
-    local i = 1
-    for _, subgroupname in pairs(itemsubgroup_names) do
-        local tempsubgroup = {
-            type = "item-subgroup",
-            name = subgroupname,
-            group = itemgroup_name,
-            order = "a-a"
-        }
-        tempsubgroups[i] = tempsubgroup
-        i = i + 1
-    end
-    data:extend(tempsubgroups)
-end
-
 --- gets an gameitem by name
 ---@param itemname string
-function Arcanium.get_item(itemname)
+function get_item(itemname)
     return data.raw["item"][itemname]
 end
 
---- func desc
+--- adds item to a subgroup
 ---@param itemname string
 ---@param subgroupname string
-function Arcanium.additem_to_subgroup(itemname, subgroupname)
-    local item = Arcanium.get_item(itemname)
+function additem_to_subgroup(itemname, subgroupname)
+    local item = get_item(itemname)
     item.subgroup = subgroupname
 end
 
 --- Damages a playercharacter for the specified amount.
 ---@param player table
 ---@param damage number
-function Arcanium.damage_player_character(player, damage)
+function damage_player_character(player, damage)
     player.character.health = player.character.health - damage
     if player.character.health <= 0 then
         player.character.die()
@@ -66,7 +27,7 @@ end
 ---@param subimagepath string
 ---@param icon_size number
 ---@param subimage_position_index number
-function Arcanium.graphics.icon_with_subimage(iconpath, subimagepath, icon_size, subimage_position_index)
+function icon_with_subimage(iconpath, subimagepath, icon_size, subimage_position_index)
     local offset = icon_size/4
     local shift_positions = {}
         shift_positions[1] = {-offset, -offset}
@@ -95,17 +56,53 @@ function Arcanium.graphics.icon_with_subimage(iconpath, subimagepath, icon_size,
     return stacked_icons
 end
 
---- dumps table data into logfile
+--TODO: Fix so it works on any surface
+--- returns the pollution amount on a surface from a position vector
+---@param position table
+---@param surface_index number
+function get_pollution(position, surface_index)
+    return game.surfaces[1].get_pollution(position)
+end
+
+--- damages the given player for an amount
+---@param player any
+---@param damage any
+function damage_player_character(player, damage)
+    player.character.health = player.character.health - damage
+    if player.character.health <= 0 then
+        player.character.die()
+    end
+end
+
+--- dumps table data into ingame console
 ---@param dump any
-function Arcanium.debug.dump(dump)
-    log(serpent.block(dump))
+function dump(dump)
+    game.print(serpent.block(dump))
 end
 
 ---returns a table with data for a box of size WxH
 ---@param width number
 ---@param height number
-function Arcanium.util.box(width, height)
+function box(width, height)
     local halfW = width/2
     local halfH = height/2
     return {{-halfW, -halfH},{halfW, halfH}}
+end
+
+---disables the given recipe
+---@param recipe string 
+function disable_recipe(recipe)
+    recipe.enabled = false
+    if recipe.normal then
+        recipe.normal.enabled = false
+    end
+    if recipe.expensive then
+        recipe.expensive.enabled = false
+    end
+end
+
+---disables the given technology
+---@param technology string
+function disable_technology(technology)
+    technology.hidden = true
 end

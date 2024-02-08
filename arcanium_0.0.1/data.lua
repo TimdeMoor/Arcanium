@@ -1,17 +1,13 @@
 Arcanium = Arcanium or {}
-Arcanium.debug = Arcanium.debug or {}
-Arcanium.graphics = Arcanium.graphics or {}
-Arcanium.util = Arcanium.util or {}
+debug = debug or {}
+graphics = graphics or {}
+util = util or {}
 
 require("functions")
 require("enums")
 
-local itemgroups = {"arcanium"}
-
-local summoning_subgroups = {"summoning", "conjuring-ore", "conjuring-sacrificial", "research"}
-
-Arcanium.generate_itemgroups(itemgroups)
-Arcanium.generate_itemsubgroups(itemgroups[1], summoning_subgroups)
+-- Guess what this one does...
+require("vanilla-overrides")
 
 -- Entities
 require("prototypes.entities.aura-assembler")
@@ -46,7 +42,4 @@ require("prototypes.item-groups")
 require("prototypes.technology.experimentation-summoning")
 
 -- Tiles
-require("prototypes.tiles")
-
--- Debug
-require("prototypes.debug")
+--require("prototypes.tiles")
