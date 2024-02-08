@@ -7,7 +7,7 @@ data:extend({{
          64, enums.subimage_position.TopLeft),
     category = "conjuring-sacrificial",
     energy_required = 1,
-    enabled = true,
     ingredients = {},
-    result = "basic-conjuring-catalyst"
+    result = "basic-conjuring-catalyst",
+    enabled = false
 }})

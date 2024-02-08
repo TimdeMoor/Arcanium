@@ -6,15 +6,16 @@ util = util or {}
 require("functions")
 require("enums")
 
--- Guess what this one does...
+-- First, disable all vanilla related tech and recipes
 require("vanilla-overrides")
 
 -- Entities
 require("prototypes.entities.aura-assembler")
 require("prototypes.entities.unstable-assembler")
+require("prototypes.entities.stone-workstation")
 
 -- Items
-require("prototypes.items.mana-crystal")
+require("prototypes.items.conjuring-catalysts")
 require("prototypes.items.knowledge-books")
 require("prototypes.items.aura-assembler")
 require("prototypes.items.unstable-assembler")

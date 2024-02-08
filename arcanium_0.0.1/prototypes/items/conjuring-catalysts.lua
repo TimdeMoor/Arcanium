@@ -3,7 +3,7 @@ data:extend({{
     name = "basic-conjuring-catalyst",
     icon = "__arcanium__/graphics/icons/order-crystal.png",
     icon_size = 64,
-    subgroup = "conjuring-catalysts",
+    subgroup = "catalysts",
     order = "a",
-    stack_size = 50
+    stack_size = 50,
 }})

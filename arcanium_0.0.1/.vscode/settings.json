@@ -3,7 +3,8 @@
         "undefined-global",
         "lowercase-global",
         "missing-fields",
-        "assign-type-mismatch"
+        "assign-type-mismatch",
+        "undefined-field"
     ],
     "factorio.versions": [
         {

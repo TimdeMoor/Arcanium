@@ -17,7 +17,7 @@ data:extend({{
     unit = {
         count = 10,
         ingredients = {{"knowledge-book-conjuring", 1}},
-        time = 15
+        time = 1
     },
     order = "d-a-a"
 }})
