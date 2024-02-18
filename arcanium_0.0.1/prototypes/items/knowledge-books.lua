@@ -3,7 +3,7 @@ data:extend({{
     name = "knowledge-book-elemental",
     icon = "__arcanium__/graphics/icons/knowledge-book-green.png",
     icon_size = 32,
-    --subgroup = "research",
+    -- subgroup = "research",
     order = "b",
     stack_size = 50,
     durability = 1
@@ -12,7 +12,7 @@ data:extend({{
     name = "knowledge-book-alchemy",
     icon = "__arcanium__/graphics/icons/knowledge-book-blue.png",
     icon_size = 32,
-    --subgroup = "research",
+    -- subgroup = "research",
     order = "b",
     stack_size = 50,
     durability = 1
@@ -21,7 +21,7 @@ data:extend({{
     name = "knowledge-book-enchantments",
     icon = "__arcanium__/graphics/icons/knowledge-book-shield.png",
     icon_size = 32,
-    --subgroup = "research",
+    -- subgroup = "research",
     order = "b",
     stack_size = 50,
     durability = 1
@@ -30,7 +30,7 @@ data:extend({{
     name = "knowledge-book-conjuring",
     icon = "__arcanium__/graphics/icons/knowledge-book-yellow.png",
     icon_size = 32,
-    --subgroup = "research",
+    -- subgroup = "research",
     order = "b",
     stack_size = 50,
     durability = 1
@@ -39,8 +39,8 @@ data:extend({{
     name = "stone-workstation",
     icon = "__arcanium__/graphics/test.png",
     icon_size = 32,
-    --subgroup = "research",
+    -- subgroup = "research",
     order = "b",
     stack_size = 50,
-    place_result = "stone-workstation",
+    place_result = "stone-workstation"
 }})

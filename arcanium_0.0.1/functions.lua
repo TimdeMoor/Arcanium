@@ -28,26 +28,24 @@ end
 ---@param icon_size number
 ---@param subimage_position_index number
 function icon_with_subimage(iconpath, subimagepath, icon_size, subimage_position_index)
-    local offset = icon_size/4
+    local offset = icon_size / 4
     local shift_positions = {}
-        shift_positions[1] = {-offset, -offset}
-        shift_positions[2] = {0, -offset}
-        shift_positions[3] = {offset, -offset}
-        shift_positions[4] = {-offset, 0}
-        shift_positions[5] = {0, 0}
-        shift_positions[6] = {offset, 0}
-        shift_positions[7] = {-offset, offset}
-        shift_positions[8] = {0, offset}
-        shift_positions[9] = {offset, offset}
-
+    shift_positions[1] = {-offset, -offset}
+    shift_positions[2] = {0, -offset}
+    shift_positions[3] = {offset, -offset}
+    shift_positions[4] = {-offset, 0}
+    shift_positions[5] = {0, 0}
+    shift_positions[6] = {offset, 0}
+    shift_positions[7] = {-offset, offset}
+    shift_positions[8] = {0, offset}
+    shift_positions[9] = {offset, offset}
 
     local stacked_icons = {{
         icon = iconpath,
         icon_size = icon_size,
         scale = 1,
-        shift = {0,0}
-    },
-    {
+        shift = {0, 0}
+    }, {
         icon = subimagepath,
         icon_size = icon_size,
         scale = 0.66,
@@ -56,7 +54,7 @@ function icon_with_subimage(iconpath, subimagepath, icon_size, subimage_position
     return stacked_icons
 end
 
---TODO: Fix so it works on any surface
+-- TODO: Fix so it works on any surface
 --- returns the pollution amount on a surface from a position vector
 ---@param position table
 ---@param surface_index number
@@ -84,9 +82,9 @@ end
 ---@param width number
 ---@param height number
 function box(width, height)
-    local halfW = width/2
-    local halfH = height/2
-    return {{-halfW, -halfH},{halfW, halfH}}
+    local halfW = width / 2
+    local halfH = height / 2
+    return {{-halfW, -halfH}, {halfW, halfH}}
 end
 
 ---disables the given recipe
@@ -105,4 +103,18 @@ end
 ---@param technology string
 function disable_technology(technology)
     technology.hidden = true
+end
+
+---disables the given item
+---@param item string
+function disable_item(item)
+    item.enabled = false
+end
+
+function table_length(table)
+    local counter = 0
+    for k, v in pairs(table) do
+        counter = counter + 1
+    end
+    return counter
 end

@@ -5,5 +5,5 @@ data:extend({{
     icon_size = 64,
     subgroup = "catalysts",
     order = "a",
-    stack_size = 50,
+    stack_size = 50
 }})

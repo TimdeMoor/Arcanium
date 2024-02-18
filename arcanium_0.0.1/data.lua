@@ -13,6 +13,7 @@ require("vanilla-overrides")
 require("prototypes.entities.aura-assembler")
 require("prototypes.entities.unstable-assembler")
 require("prototypes.entities.stone-workstation")
+require("prototypes.entities.tree-sapling")
 
 -- Items
 require("prototypes.items.conjuring-catalysts")
@@ -20,7 +21,7 @@ require("prototypes.items.knowledge-books")
 require("prototypes.items.aura-assembler")
 require("prototypes.items.unstable-assembler")
 require("prototypes.items.armor")
---require("prototypes.items.enchants")
+-- require("prototypes.items.enchants")
 require("prototypes.items.plank")
 require("prototypes.items.sapling")
 require("prototypes.items.paper")
@@ -28,10 +29,9 @@ require("prototypes.items.stick")
 require("prototypes.items.empty-scroll")
 
 -- Recipes
-require("prototypes.recipes.mana-crystal")
 require("prototypes.recipes.conjuring")
 require("prototypes.recipes.knowledge-books")
---require("prototypes.recipes.enchants")
+-- require("prototypes.recipes.enchants")
 require("prototypes.recipes.treefarm")
 
 -- Ores
@@ -40,7 +40,9 @@ require("prototypes.recipes.treefarm")
 require("prototypes.item-groups")
 
 -- Technologies
-require("prototypes.technology.experimentation-summoning")
+require("prototypes.technology.treefarm")
+require("prototypes.technology.intermediates")
+require("prototypes.technology.conjuring")
 
 -- Tiles
---require("prototypes.tiles")
+-- require("prototypes.tiles")

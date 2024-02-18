@@ -5,11 +5,17 @@ require("starter-inventory")
 script.on_event(defines.events.on_built_entity, function(event)
     track_aura_assemblers(event)
     track_unstable_entities(event)
+    track_plantables(event)
 end)
 
 script.on_event(defines.events.on_robot_built_entity, function(event)
     track_aura_assemblers(event)
     track_unstable_entities(event)
+    track_plantables(event)
+end)
+
+script.on_event(defines.events.on_player_mined_entity, function(event)
+    check_plantable_tree_matured(event)
 end)
 
 script.on_event(defines.events.on_player_crafted_item, function(event)
@@ -29,7 +35,7 @@ function onInit()
 end
 script.on_init(onInit)
 
---TODO: rewrite to use nth tick
+-- TODO: rewrite to use nth tick
 function onTick()
     if (game.tick % settings.startup["aura-check-frequency-in-ticks"].value == 0) then
         process_aura_assemblers(global.aura_assemblers)
@@ -43,7 +49,7 @@ function onTick()
 end
 
 function onLoad()
-	script.on_event(defines.events.on_tick, onTick)
+    script.on_event(defines.events.on_tick, onTick)
 end
 script.on_load(onLoad)
 
@@ -85,12 +91,40 @@ function set_starter_inventory(event)
     local player = game.players[event.player_index]
     local inventory = player.get_main_inventory()
 
-    if(not inventory)then return end
+    if (not inventory) then
+        return
+    end
 
     inventory.clear()
     for _, v in pairs(starter_inventory) do
         player.get_main_inventory().insert(v)
     end
 end
+
+function track_plantables(event)
+    global.plantables = global.plantables or {}
+    entity = event.created_entity
+    if (string.find(entity.name, "sapling")) then
+        table.insert(global.plantables, entity)
+        entity.health = 0
+    end
+end
+
+function check_plantable_tree_matured(event)
+    entity = event.entity
+    if (string.find(entity.name, "sapling")) then
+        local ratio = entity.get_health_ratio()
+        if (ratio == 1) then
+            local player = game.players[event.player_index]
+            player.get_main_inventory().insert({
+                name = "wood",
+                count = 3
+            })
+        else
+            game.print("Looks like this tree wasn't mature yet...")
+        end
+    end
+end
+
 script.on_event(defines.events.on_cutscene_cancelled, set_starter_inventory)
 script.on_event(defines.events.on_player_created, set_starter_inventory)

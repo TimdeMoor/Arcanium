@@ -5,7 +5,10 @@ data:extend({{
     icon_size = 32,
     order = "c",
     max_health = 50,
-    minable = {mining_time = 0.5, result = "stone-workstation"},
+    minable = {
+        mining_time = 0.5,
+        result = "stone-workstation"
+    },
 
     tile_width = 2,
     tile_height = 2,
@@ -15,7 +18,7 @@ data:extend({{
     energy_usage = "1W",
     energy_source = {
         type = "void",
-        emissions = 0,
+        emissions = 0
     },
 
     off_animation = {
@@ -23,7 +26,7 @@ data:extend({{
         size = {32, 32},
         frame_count = 1,
         line_length = 1,
-        shift = {0.25, 0},
+        shift = {0.25, 0}
     },
 
     on_animation = {
@@ -31,12 +34,12 @@ data:extend({{
         size = {32, 32},
         frame_count = 1,
         line_length = 1,
-        shift = {0.25, 0},
+        shift = {0.25, 0}
     },
 
     inputs = {
-        --"knowledge-book-conjuring"
+        -- "knowledge-book-conjuring"
     },
 
-    module_specification = {},
+    module_specification = {}
 }})

@@ -31,19 +31,15 @@ data:extend({{
         direction_count = 1,
         shift = {0, 0}
     },
-    animation =
-    {
-      layers =
-      {
-        {
-          filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1.png",
-          priority="high",
-          width = 108,
-          height = 114,
-          frame_count = 1,
-          line_length = 1,
-          shift = util.by_pixel(0, 2),
-        }
-      }
-    },
+    animation = {
+        layers = {{
+            filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1.png",
+            priority = "high",
+            width = 108,
+            height = 114,
+            frame_count = 1,
+            line_length = 1,
+            shift = util.by_pixel(0, 2)
+        }}
+    }
 }})
