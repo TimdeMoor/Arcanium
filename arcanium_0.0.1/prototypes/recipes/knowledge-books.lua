@@ -6,10 +6,23 @@ data:extend({{
     energy_required = 1,
     enabled = true,
     -- subgroup = "",
-    ingredients = {{"iron-ore", 1}, {"copper-ore", 1}, {"empty-scroll", 1}},
+    ingredients = {{"iron-ore", 1}, {"copper-ore", 1}},
     result = "knowledge-book-conjuring",
     result_count = 1
-}, {
+}, 
+{
+    type = "recipe",
+    name = "knowledge-book-alchemy",
+    icon = "__arcanium__/graphics/icons/knowledge-book-blue.png",
+    icon_size = 32,
+    energy_required = 1,
+    enabled = true,
+    -- subgroup = "",
+    ingredients = {{"empty-scroll", 1}},
+    result = "knowledge-book-conjuring",
+    result_count = 1
+},
+{
     type = "recipe",
     name = "stone-workstation",
     icon = "__arcanium__/graphics/test.png",

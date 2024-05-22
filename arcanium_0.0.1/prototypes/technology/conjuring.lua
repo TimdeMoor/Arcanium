@@ -23,6 +23,5 @@ data:extend({{
         ingredients = {{"knowledge-book-conjuring", 1}},
         time = 1
     },
-    prerequisites = {"basic-scroll"},
     order = "d-a-a"
 }})

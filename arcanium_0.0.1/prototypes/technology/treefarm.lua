@@ -18,5 +18,5 @@ data:extend({{
         ingredients = {{"knowledge-book-conjuring", 1}},
         time = 1
     },
-    order = "d-a-a"
+    order = "d-a-a",
 }})

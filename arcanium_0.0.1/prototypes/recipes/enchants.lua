@@ -26,4 +26,5 @@ data:extend({{
     ingredients = {{"basic-mana-crystal", 2}, {"iron-ore", 5}},
     energy_required = 1,
     result = "darklord-armor"
-}})
+}
+})
