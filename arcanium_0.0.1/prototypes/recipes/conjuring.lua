@@ -1,6 +1,6 @@
-local conjuring_resources = {"iron-ore", "copper-ore", "coal", "stone"}
+local conjuring_vanilla_resources = {"iron-ore", "copper-ore", "coal", "stone"}
 
-for _, resource in pairs(conjuring_resources) do
+for _, resource in pairs(conjuring_vanilla_resources) do
     data:extend({{
         type = "recipe",
         name = "basic-conjuring-" .. resource,
@@ -50,4 +50,33 @@ data:extend({{
     ingredients = {},
     result = "basic-conjuring-catalyst",
     enabled = false
+}})
+
+data:extend({{
+    type = "recipe",
+    name = "basic-conjuring-elementium-ore",
+    energy_required = 1,
+    icons = icon_with_subimage("__arcanium__/graphics/icons/elementium-ore.png",
+        "__arcanium__/graphics/icons/order-crystal.png", 64, enums.subimage_position.TopLeft),
+    subgroup = "basic",
+    enabled = false,
+    ingredients = {{"basic-conjuring-catalyst", 1}, {"elementium-ore", 1}},
+    results = {{"elementium-ore", 2}, {
+        type = "item",
+        name = "basic-conjuring-catalyst",
+        probability = settings.startup["basic-conjuring-catalyst-use-chance"].value / 100,
+        amount = 1
+    }}
+}, {
+    type = "recipe",
+    name = "sacrificial-conjuring-elementium-ore",
+    energy_required = 1,
+    icons = icon_with_subimage("__arcanium__/graphics/icons/elementium-ore.png",
+        "__arcanium__/graphics/icons/blood-drop.png", 64, enums.subimage_position.TopLeft),
+    subgroup = "sacrificial",
+    category = "conjuring-sacrificial",
+    enabled = false,
+    allow_as_intermediate = false,
+    ingredients = {},
+    result = "elementium-ore"
 }})

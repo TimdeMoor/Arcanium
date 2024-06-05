@@ -38,7 +38,7 @@ data:extend({{
     },
 
     inputs = {
-        -- "knowledge-book-conjuring"
+        "knowledge-primal"
     },
 
     module_specification = {}

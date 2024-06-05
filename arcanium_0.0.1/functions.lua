@@ -62,16 +62,6 @@ function get_pollution(position, surface_index)
     return game.surfaces[1].get_pollution(position)
 end
 
---- damages the given player for an amount
----@param player any
----@param damage any
-function damage_player_character(player, damage)
-    player.character.health = player.character.health - damage
-    if player.character.health <= 0 then
-        player.character.die()
-    end
-end
-
 --- dumps table data into ingame console
 ---@param dump any
 function dump(dump)
@@ -117,4 +107,15 @@ function table_length(table)
         counter = counter + 1
     end
     return counter
+end
+
+
+function getIndex(tab, val)
+    local index = nil
+    for i, v in ipairs (tab) do 
+        if (v.id == val) then
+          index = i 
+        end
+    end
+    return index
 end

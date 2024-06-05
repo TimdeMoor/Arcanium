@@ -35,6 +35,15 @@ data:extend({{
     stack_size = 50,
     durability = 1
 }, {
+    type = "tool",
+    name = "knowledge-primal",
+    icon = "__arcanium__/graphics/test.png",
+    icon_size = 32,
+    -- subgroup = "research",
+    order = "b",
+    stack_size = 50,
+    durability = 1
+}, {
     type = "item",
     name = "stone-workstation",
     icon = "__arcanium__/graphics/test.png",

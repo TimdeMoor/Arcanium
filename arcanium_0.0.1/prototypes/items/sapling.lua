@@ -1,7 +1,7 @@
 data:extend({{
     type = "item",
     name = "sapling",
-    place_result = "tree-sapling",
+    place_result = "sapling",
     icon = "__arcanium__/graphics/icons/sapling.png",
     icon_size = 512,
     scale = 0.3125,

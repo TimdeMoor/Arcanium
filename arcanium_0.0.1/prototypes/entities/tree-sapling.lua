@@ -1,11 +1,10 @@
 data:extend({{
     type = "tree",
-    name = "tree-sapling",
+    name = "sapling",
     icon = "__arcanium__/graphics/icons/sapling.png",
     icon_size = 512,
     scale = 1,
     icon_mipmaps = 4,
-    flags = tree_flags,
     minable = {
         mining_particle = "wooden-particle",
         mining_time = 0.5,

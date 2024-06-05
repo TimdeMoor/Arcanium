@@ -5,17 +5,24 @@ require("starter-inventory")
 script.on_event(defines.events.on_built_entity, function(event)
     track_aura_assemblers(event)
     track_unstable_entities(event)
-    track_plantables(event)
+    plant_sapling(event)
 end)
 
 script.on_event(defines.events.on_robot_built_entity, function(event)
     track_aura_assemblers(event)
     track_unstable_entities(event)
-    track_plantables(event)
+    plant_sapling(event)
 end)
 
 script.on_event(defines.events.on_player_mined_entity, function(event)
-    check_plantable_tree_matured(event)
+    entity = event.entity
+    if (string.find(entity.name, "tree")) then
+        local ratio = entity.get_health_ratio()
+        if (ratio ~= 1) then
+            event.buffer.clear()
+            game.print("Looks like this tree wasn't mature yet...")
+        end
+    end
 end)
 
 script.on_event(defines.events.on_player_crafted_item, function(event)
@@ -101,30 +108,28 @@ function set_starter_inventory(event)
     end
 end
 
-function track_plantables(event)
-    global.plantables = global.plantables or {}
-    entity = event.created_entity
-    if (string.find(entity.name, "sapling")) then
-        table.insert(global.plantables, entity)
-        entity.health = 0
+function plant_sapling(event)
+    local entity = event.created_entity
+    if not (entity.name == "sapling") then
+        return
     end
+
+    local treenames = {"tree-01", "tree-02", "tree-03", "tree-04", "tree-05", "tree-07", "tree-08"}
+    local treename = treenames[math.random(#treenames)]
+    local treeData = {
+        name = treename,
+        position = entity.position
+    }
+    local surface = entity.surface
+
+    entity.die()
+    local created_entity
+    if surface.can_place_entity(treeData) then
+        created_entity = surface.create_entity(treeData)
+    end
+    created_entity.health = 0
 end
 
-function check_plantable_tree_matured(event)
-    entity = event.entity
-    if (string.find(entity.name, "sapling")) then
-        local ratio = entity.get_health_ratio()
-        if (ratio == 1) then
-            local player = game.players[event.player_index]
-            player.get_main_inventory().insert({
-                name = "wood",
-                count = 3
-            })
-        else
-            game.print("Looks like this tree wasn't mature yet...")
-        end
-    end
-end
-
-script.on_event(defines.events.on_cutscene_cancelled, set_starter_inventory)
 script.on_event(defines.events.on_player_created, set_starter_inventory)
+script.on_event(defines.events.on_cutscene_cancelled, set_starter_inventory)
+script.on_event(defines.events.on_cutscene_finished, set_starter_inventory)

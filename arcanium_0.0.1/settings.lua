@@ -47,6 +47,13 @@ data:extend({{
     maximum_value = 600
 }, {
     type = "int-setting",
+    name = "tree-growth-frequency-in-ticks",
+    setting_type = "startup",
+    minimum_value = 10,
+    default_value = 60,
+    maximum_value = 600
+}, {
+    type = "int-setting",
     name = "aura-crafting-threshold",
     setting_type = "startup",
     minimum_value = 0,

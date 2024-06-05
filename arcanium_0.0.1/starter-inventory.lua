@@ -1,12 +1,9 @@
 starter_inventory = {{
     name = "transport-belt",
-    count = 69
+    count = 50
 }, {
-    name = "inserter",
+    name = "burner-inserter",
     count = 10
-}, {
-    name = "assembling-machine-1",
-    count = 2
 }, {
     name = "solar-panel",
     count = 10
@@ -17,9 +14,15 @@ starter_inventory = {{
     name = "small-electric-pole",
     count = 10
 }, {
-    name = "stone-furnace",
-    count = 4
+    name = "copper-plate",
+    count = 50
 }, {
     name = "wood",
-    count = 10
+    count = 20
+}, {
+    name = "stone",
+    count = 20
+}, {
+    name = "iron-plate",
+    count = 50
 }}
