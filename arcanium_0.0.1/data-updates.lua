@@ -12,3 +12,4 @@ table.insert(data.raw.character.character.crafting_categories, "conjuring-sacrif
 
 data.raw.character.character.max_health = settings.startup["character-starting-health"].value
 data.raw.character.character.healing_per_tick = settings.startup["character-healing-per-second"].value / 60
+data.raw.item.landfill.place_as_tile.condition = {}

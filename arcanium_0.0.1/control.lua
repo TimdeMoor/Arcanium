@@ -133,3 +133,81 @@ end
 script.on_event(defines.events.on_player_created, set_starter_inventory)
 script.on_event(defines.events.on_cutscene_cancelled, set_starter_inventory)
 script.on_event(defines.events.on_cutscene_finished, set_starter_inventory)
+
+script.on_event(defines.events.on_chunk_generated, function(ev)
+    local starter_island_size = 8
+    local surface = ev.surface
+    if (not (surface.name == "nauvis" or surface.name:sub(1, 11) ~= "spaceblock_")) then
+        return
+    end
+    local area = ev.area
+    local tv = {}
+    local t = {}
+    local tx
+    local base_tile = 1
+    for x = area.left_top.x, area.right_bottom.x do
+        for y = area.left_top.y, area.right_bottom.y do
+
+            if ((x >= starter_island_size * -1 and x < starter_island_size) and
+                (y >= starter_island_size * -1 and y < starter_island_size)) then
+                tx = tx or {}
+                table.insert(tx, {
+                    name = "landfill",
+                    position = {x, y}
+                })
+            else
+                local tile = "void" -- "out-of-map"
+                local rg = false
+                if (rg) then
+                    local zx, zy = x, y
+                    tv[zx] = tv[zx] or {}
+                    if (not tv[zx][zy]) then
+                        table.insert(t, {
+                            name = tile,
+                            position = {zx, zy}
+                        })
+                    end
+                    for i = 1, math.random(4, 12) do
+                        local xy = math.random(1, 4) - 2
+                        zx = zx + (xy == -1 and -1 or (xy == 2 and 1 or 0))
+                        zy = zy + (xy == 0 and -1 or (xy == 1 and 1 or 0))
+                        tv[zx] = tv[zx] or {}
+                        if (math.abs(zx) > starter_island_size and math.abs(zy) > starter_island_size and not tv[zx][zy]) then
+                            tv[zx][zy] = true
+                            table.insert(t, {
+                                name = tile,
+                                position = {zx, zy}
+                            })
+                        end
+                    end
+                elseif (not tv[x] or not tv[x][y]) then
+                    table.insert(t, {
+                        name = tile,
+                        position = {x, y}
+                    })
+                    tv[x] = tv[x] or {}
+                    tv[x][y] = true
+                end
+            end
+        end
+    end
+
+    surface.destroy_decoratives {
+        area = area
+    }
+    if (tx) then
+        surface.set_tiles(tx)
+    end
+    surface.set_tiles(t)
+
+    for k, v in pairs(surface.find_entities_filtered {
+        type = "character",
+        invert = true,
+        area = area
+    }) do
+        v.destroy {
+            raise_destroy = true
+        }
+    end
+
+end)

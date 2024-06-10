@@ -50,4 +50,4 @@ require("prototypes.technology.conjuring.basic-iron-ore")
 require("prototypes.technology.conjuring.basic-elementium-ore")
 
 -- Tiles
--- require("prototypes.tiles")
+require("prototypes.tiles")
