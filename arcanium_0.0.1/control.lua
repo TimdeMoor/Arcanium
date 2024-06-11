@@ -15,12 +15,10 @@ script.on_event(defines.events.on_robot_built_entity, function(event)
 end)
 
 script.on_event(defines.events.on_player_mined_entity, function(event)
-    entity = event.entity
-    if (string.find(entity.name, "tree")) then
-        local ratio = entity.get_health_ratio()
-        if (ratio ~= 1) then
-            event.buffer.clear()
-            game.print("Looks like this tree wasn't mature yet...")
+    if (string.find(event.entity.name, "tree")) then
+        if (event.entity.get_health_ratio() ~= 1) then
+            event.buffer.clear() -- remove the mined item.
+            game.print("Looks like this tree wasn't ready to be harvested yet...")
         end
     end
 end)
@@ -130,11 +128,7 @@ function plant_sapling(event)
     created_entity.health = 0
 end
 
-script.on_event(defines.events.on_player_created, set_starter_inventory)
-script.on_event(defines.events.on_cutscene_cancelled, set_starter_inventory)
-script.on_event(defines.events.on_cutscene_finished, set_starter_inventory)
-
-script.on_event(defines.events.on_chunk_generated, function(ev)
+function set_void_world(event)
     local starter_island_size = 8
     local surface = ev.surface
     if (not (surface.name == "nauvis" or surface.name:sub(1, 11) ~= "spaceblock_")) then
@@ -211,3 +205,9 @@ script.on_event(defines.events.on_chunk_generated, function(ev)
     end
 
 end)
+
+
+script.on_event(defines.events.on_player_created, set_starter_inventory)
+script.on_event(defines.events.on_cutscene_cancelled, set_starter_inventory)
+script.on_event(defines.events.on_cutscene_finished, set_starter_inventory)
+script.on_event(defines.events.on_chunk_generated, set_void_world)
