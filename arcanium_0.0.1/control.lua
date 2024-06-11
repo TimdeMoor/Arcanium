@@ -25,10 +25,9 @@ end)
 
 script.on_event(defines.events.on_player_crafted_item, function(event)
     local player = game.players[event.player_index]
-    if player.character == nil then
-        return
-    end
-    if string.find(event.recipe.category, "sacrificial") then
+    if player.character == nil then return end
+
+    if string.find(event.recipe.category, "sacrificial") then --check if the recipecategory contains the word sacrificial
         damage_player_character(player, settings.startup["damage-on-sacrificial-amount"].value)
     end
 end)
